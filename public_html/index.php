@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set("Asia/Manila");
+date_default_timezone_get('Asia/Manila');
 /**
  * CodeIgniter
  *
@@ -7,7 +7,7 @@ date_default_timezone_set("Asia/Manila");
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c)  2014 - 2017, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -54,17 +54,16 @@ date_default_timezone_set("Asia/Manila");
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-
-
+	// var_dump(dirname(__FILE__));
 	switch(dirname(__FILE__)){
-		case '/var/www/html/ci/wicorp/public_html':
-			define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+		case '/var/www/html/ci/elective.dev/public_html':
+			define('ENVIRONMENT','development');
 			break;
 		default:
-			define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+			define('ENVIRONMENT','production');
 			break;
 	}
-
+	// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -74,13 +73,10 @@ date_default_timezone_set("Asia/Manila");
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
-
-
-
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(E_ALL | E_STRICT);
+		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
 
